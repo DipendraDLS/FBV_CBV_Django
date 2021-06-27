@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Based CRUD </title>
+    <!-- CSS File -->
+    <link rel="stylesheet" href="{% static 'GV_CRUD/css/bootstrap.css' %}">
+
+    <!-- Js File  -->
+    <script src="{% static 'GV_CRUD/js/bootstrap.js' %}"></script>
+    <script src="{% static 'GV_CRUD/js/jquery.js' %}"></script>
+    <script src="{% static 'GV_CRUD/js/popper.js' %}"></script>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h2 class="text-center alert alert-danger">Generic View Model Form CRUD Project.</h2>
+
+    {% block content %}
+
+    {% endblock content %}
+    </div>
+
+    
+</body>
+</html>

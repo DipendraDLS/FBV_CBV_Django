@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Student Details</h2>
+    {{student.id}}
+    {{student.name}}
+    {{student.roll}}
+    {{student.course}}
+
+    <hr>
+    
+    <!-- views.py bata ayeko 'all_students' context ko through sabai students ko name display gareko so that tyo name ma click 
+         hunda tyo particular student ko details herna sakos vanera.-->
+
+    {% for student in all_students  %}
+    <li style="list-style:none;"><a href="{% url 'studentdetails' student.id %}">{{student.name}}</a></li><br>
+    {% endfor %}
+        
+</body>
+</html>
+
+

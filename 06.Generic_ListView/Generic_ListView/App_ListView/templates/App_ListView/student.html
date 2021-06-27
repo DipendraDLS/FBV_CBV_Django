@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <title>Student Record</title>
+    <!-- css File -->
+    <link rel="stylesheet" href="{% static 'App_ListView/css/bootstrap.css' %}"/>
+
+    <!-- Js File  -->
+    <script src="{% static 'App_ListView/js/bootstrap.js' %}"></script>
+    <script src="{% static 'App_ListView/js/jquery.js' %}"></script>
+    <script src="{% static 'App_ListView/js/popper.js' %}"></script>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2 class="text-center alert alert-danger"> Generic Listview </h2>
+      <div class="row">
+        <div class="col-sm-8 offset-2">
+          <h4 class="text-center alert alert-info">Show Students Detail</h4>
+          <table class="table table-hover">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Roll</th>
+                <th scope="col">Course</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {% for stu in student_list %} <!--student_list is bydefault context given by django Listview i.e (modelname_list)-->
+                                              <!-- In order to use our own context object use 'context_object_name' in views.py -->
+                <th class="text-center" scope="row">{{stu.id}}</th>
+                <td class="text-center">{{stu.name}}</td>
+                <td class="text-center"> {{stu.roll}}</td>
+                <td class="text-center"> {{stu.course}}</td>           
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+          <hr>
+          <!-- For order_by context in 'get_context_data'-->
+          <h4 class="text-center alert alert-success">Show Students Detail Order By Name</h4>
+
+          <table class="table table-hover">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Roll</th>
+                <th scope="col">Course</th>
+               
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {% for stu_orderby in order_by %} <!--student_list is bydefault context given by django Listview i.e (modelname_list)-->
+                                              <!-- In order to use our own context object use 'context_object_name' in views.py -->
+                <th class="text-center" scope="row">{{stu_orderby.id}}</th>
+                <td class="text-center">{{stu_orderby.name}}</td>
+                <td class="text-center"> {{stu_orderby.roll}}</td>
+                <td class="text-center"> {{stu_orderby.course}}</td>           
+              </tr>
+
+              {% endfor %}
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
